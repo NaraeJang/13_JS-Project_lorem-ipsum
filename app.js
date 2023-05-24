@@ -18,6 +18,15 @@ const result = document.querySelector(".lorem-text");
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
+  // change the value from string to number
   const value = parseInt(amount.value);
-  console.log(value);
+  const random = Math.floor(Math.random() * text.length);
+
+  // empty value
+  // negative value
+  // more than 9 value (since I have only 9 paragraphs)
+  // than I will show only 1 paragraph.
+  if (isNaN(value) || value < 0 || value > 9) {
+    result.innerHTML = `<p class="result">${text[random]}</p>`;
+  }
 });
