@@ -28,7 +28,7 @@ form.addEventListener("submit", function (e) {
   // negative value
   // more than 9 value (since I have only 9 paragraphs)
   // than I will show only 1 paragraph.
-  if (isNaN(value) || value < 0 || value > 9) {
+  if (isNaN(value) || value <= 0 || value > 9) {
     result.innerHTML = `<p class="result">${text[random]}</p>`;
   } else {
     let tempText = text.slice(0, value);
