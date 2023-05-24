@@ -20,6 +20,8 @@ form.addEventListener("submit", function (e) {
   e.preventDefault();
   // change the value from string to number
   const value = parseInt(amount.value);
+
+  // generate random number
   const random = Math.floor(Math.random() * text.length);
 
   // empty value
@@ -28,5 +30,13 @@ form.addEventListener("submit", function (e) {
   // than I will show only 1 paragraph.
   if (isNaN(value) || value < 0 || value > 9) {
     result.innerHTML = `<p class="result">${text[random]}</p>`;
+  } else {
+    let tempText = text.slice(0, value);
+    tempText = tempText
+      .map(function (item) {
+        return `<p class="result">${item}</p>`;
+      })
+      .join("");
+    result.innerHTML = tempText;
   }
 });
